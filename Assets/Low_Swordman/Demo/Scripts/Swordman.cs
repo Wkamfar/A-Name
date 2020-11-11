@@ -2,18 +2,25 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 public class Swordman : PlayerController
 {
-
+    static public int coinCount;
+    public int sameCoinCount;
+    public string levelName = "Demo";
+    public int coinSave = 0;
+    public int deathPenalty = 2;
+    public Text coinTextBox;
+    public int timeOut;
     public int minHeight = -10;
     public Transform checkpoint;
     private void Start()
     {
-
+        coinSave = coinCount;
         m_CapsulleCollider  = this.transform.GetComponent<CapsuleCollider2D>();
         m_Anim = this.transform.Find("model").GetComponent<Animator>();
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
-  
+        coinTextBox.text = "Points: " + coinCount.ToString();
 
     }
 
@@ -21,12 +28,22 @@ public class Swordman : PlayerController
     {
         Debug.Log("Respawning");
         //this.transform.position = checkpoint.position;
-        SceneManager.LoadScene("Demo");
+        SceneManager.LoadScene(levelName);
+        coinCount = 0;
+        coinCount += coinSave;
+        coinCount -= deathPenalty;
+        if (coinCount < 0)
+        {
+            coinCount = 0;
+        }
     }
 
     private void Update()
     {
-
+        if (timeOut > 0)
+        {
+            timeOut--;
+        }
 
 
         checkInput();
@@ -235,7 +252,37 @@ public class Swordman : PlayerController
 
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.CompareTag("Coin") && timeOut <= 0)
+        {
+            timeOut = 3;
+            col.gameObject.SetActive(false);
+            Destroy(col.gameObject);
+            coinCount++;
+            coinTextBox.text = "Points: " + coinCount.ToString();
+        }
+        else if (col.CompareTag("Stompable") && timeOut <= 0)
+        {
+            timeOut = 3;
+            col.gameObject.SetActive(false);
+            Destroy(col.gameObject);
+            coinCount += 3;
+            coinTextBox.text = "Points: " + coinCount.ToString();
+            //transform.position = Vector2.MoveTowards(transform.position, moveSpots[randSpotIndex].position, speed * Time.deltaTime);
+            //m_rigidbody.AddForce(Vector2.up * 10);
 
+            Debug.Log("Hitting Stompable object");
+        }
+        else if (col.CompareTag("Flag") && timeOut <= 0)
+        {
+            
+            Debug.Log("Trying to load L2");
+            SceneManager.LoadScene("L2");
+            levelName = "L2";
+            
+        }
+    }
 
 
 
