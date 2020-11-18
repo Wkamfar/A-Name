@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 public class Swordman : PlayerController
 {
     static public int coinCount;
@@ -11,6 +12,7 @@ public class Swordman : PlayerController
     public int coinSave = 0;
     public int deathPenalty = 2;
     public Text coinTextBox;
+    //public TextMeshPro coinTextBox;
     public int timeOut;
     public int minHeight = -10;
     public Transform checkpoint;
