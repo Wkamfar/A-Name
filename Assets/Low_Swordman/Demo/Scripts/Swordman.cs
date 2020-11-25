@@ -6,28 +6,47 @@ using UnityEngine.UI;
 using TMPro;
 public class Swordman : PlayerController
 {
+    public int maxLives = 3;
+    static public int lives = 3;
     static public int coinCount;
     public int sameCoinCount;
     public string levelName = "Demo";
     public int coinSave = 0;
     public int deathPenalty = 2;
-    public Text coinTextBox;
-    //public TextMeshPro coinTextBox;
+    //public Text coinTextBox;
+    public TextMeshProUGUI coinTextBox;
     public int timeOut;
     public int minHeight = -10;
     public Transform checkpoint;
-    private void Start()
+    public Image heart1;
+    public Image heart2;
+    public Image heart3;
+    //heart1.enabled = false;
+    public void Start()
     {
         coinSave = coinCount;
         m_CapsulleCollider  = this.transform.GetComponent<CapsuleCollider2D>();
         m_Anim = this.transform.Find("model").GetComponent<Animator>();
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
         coinTextBox.text = "Points: " + coinCount.ToString();
-
+        if(lives <= 2)
+        {
+            heart3.enabled = false;
+        }
+        if(lives <= 1)
+        {
+            heart2.enabled = false;
+        }
+        if(lives <= 0)
+        {
+            heart1.enabled = false;
+        }
     }
 
-    public void respawn()
+    private void respawn()
     {
+        //Perma Death after 0 with loss menu
+        lives--;
         Debug.Log("Respawning");
         //this.transform.position = checkpoint.position;
         SceneManager.LoadScene(levelName);
