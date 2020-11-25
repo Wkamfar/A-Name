@@ -6,6 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 public class Swordman : PlayerController
 {
+    public Image deathMenu;
     public int maxLives = 3;
     static public int lives = 3;
     static public int coinCount;
@@ -24,6 +25,7 @@ public class Swordman : PlayerController
     //heart1.enabled = false;
     public void Start()
     {
+        deathMenu.enabled = false;
         coinSave = coinCount;
         m_CapsulleCollider  = this.transform.GetComponent<CapsuleCollider2D>();
         m_Anim = this.transform.Find("model").GetComponent<Animator>();
@@ -45,11 +47,12 @@ public class Swordman : PlayerController
 
     private void respawn()
     {
+        deathMenu.enabled = true;
         //Perma Death after 0 with loss menu
         lives--;
         Debug.Log("Respawning");
         //this.transform.position = checkpoint.position;
-        SceneManager.LoadScene(levelName);
+        //SceneManager.LoadScene(levelName);
         coinCount = 0;
         coinCount += coinSave;
         coinCount -= deathPenalty;
