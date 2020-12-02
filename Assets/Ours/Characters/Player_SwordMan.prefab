@@ -744,6 +744,20 @@ MonoBehaviour:
   MoveSpeed: 6
   JumpCount: 2
   jumpForce: 15
+  bounceFraction: 0.5
+  deathMenu: {fileID: 0}
+  maxLives: 3
+  sameCoinCount: 0
+  levelName: Demo
+  coinSave: 0
+  deathPenalty: 2
+  coinTextBox: {fileID: 0}
+  timeOut: 0
+  minHeight: -10
+  checkpoint: {fileID: 0}
+  heart1: {fileID: 0}
+  heart2: {fileID: 0}
+  heart3: {fileID: 0}
 --- !u!1 &7380447369455657262
 GameObject:
   m_ObjectHideFlags: 0

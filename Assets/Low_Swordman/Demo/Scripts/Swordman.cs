@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using TMPro;
 public class Swordman : PlayerController
 {
-    public Image deathMenu;
+    public Transform deathMenu;
     public int maxLives = 3;
     static public int lives = 3;
     static public int coinCount;
@@ -22,37 +22,63 @@ public class Swordman : PlayerController
     public Image heart1;
     public Image heart2;
     public Image heart3;
+    public int REBORNTIME = 1000;
+    private int rebornTime = 0;
     //heart1.enabled = false;
     public void Start()
     {
-        deathMenu.enabled = false;
+        //disableDeathMenu();
         coinSave = coinCount;
         m_CapsulleCollider  = this.transform.GetComponent<CapsuleCollider2D>();
         m_Anim = this.transform.Find("model").GetComponent<Animator>();
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
         coinTextBox.text = "Points: " + coinCount.ToString();
-        if(lives <= 2)
+        updateHeartsUI ();
+    }
+    private void updateHeartsUI()
+    {
+        if (lives <= 2)
         {
             heart3.enabled = false;
         }
-        if(lives <= 1)
+        if (lives <= 1)
         {
             heart2.enabled = false;
         }
-        if(lives <= 0)
+        if (lives <= 0)
         {
             heart1.enabled = false;
         }
     }
-
+    private void loseHeart()
+    {
+        lives--;
+        updateHeartsUI();
+    }
+    private void enableDeathMenu()
+    {
+        //deathMenu.enabled = true;
+        foreach (Transform child in deathMenu)
+        {
+            child.gameObject.SetActive (true);
+        }
+    }
+    private void disableDeathMenu()
+    {
+        //deathMenu.enabled = false;
+        foreach (Transform child in deathMenu)
+        {
+            child.gameObject.SetActive(false);
+        }
+    }
     private void respawn()
     {
-        deathMenu.enabled = true;
+        //enableDeathMenu();
         //Perma Death after 0 with loss menu
-        lives--;
+        loseHeart();
         Debug.Log("Respawning");
-        //this.transform.position = checkpoint.position;
-        //SceneManager.LoadScene(levelName);
+        this.transform.position = checkpoint.position;
+        SceneManager.LoadScene(levelName);
         coinCount = 0;
         coinCount += coinSave;
         coinCount -= deathPenalty;
@@ -68,7 +94,10 @@ public class Swordman : PlayerController
         {
             timeOut--;
         }
-
+        if (rebornTime > 0)
+        {
+            rebornTime--;
+        }
 
         checkInput();
 
@@ -308,6 +337,23 @@ public class Swordman : PlayerController
         }
     }
 
-
+    void OnCollisionEnter2D (Collision2D col)
+    {
+        if (col.gameObject.tag == "Deadly" && timeOut <= 0)
+        {
+           // m_Anim.Play("Die");
+            //lives--;
+        }
+    }
+    void OnCollisionStay2D (Collision2D col)
+    {
+        if (col.gameObject.tag == "Deadly" && timeOut <= 0 && rebornTime <= 0)
+        {
+            rebornTime = REBORNTIME;
+            m_Anim.Play("Die");
+           
+            loseHeart();
+        }
+    }
 
 }

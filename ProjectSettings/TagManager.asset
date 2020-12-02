@@ -9,6 +9,7 @@ TagManager:
   - Coin
   - Stompable
   - Flag
+  - Deadly
   layers:
   - Default
   - TransparentFX
