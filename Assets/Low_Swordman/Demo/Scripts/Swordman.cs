@@ -22,8 +22,9 @@ public class Swordman : PlayerController
     public Image heart1;
     public Image heart2;
     public Image heart3;
-    public int REBORNTIME = 1000;
+    public int REBORNTIME = 10000;
     private int rebornTime = 0;
+    public Image damaged;
     //heart1.enabled = false;
     public void Start()
     {
@@ -53,7 +54,9 @@ public class Swordman : PlayerController
     private void loseHeart()
     {
         lives--;
+        damaged.enabled = true;
         updateHeartsUI();
+        Debug.Log("Lost a Heart");
     }
     private void enableDeathMenu()
     {
@@ -97,8 +100,13 @@ public class Swordman : PlayerController
         if (rebornTime > 0)
         {
             rebornTime--;
+           
         }
-
+        else
+        {
+            damaged.enabled = false;
+            Debug.Log("No longer Invinsible");
+        }
         checkInput();
 
         if (m_rigidbody.velocity.magnitude > 30)
@@ -351,8 +359,10 @@ public class Swordman : PlayerController
         {
             rebornTime = REBORNTIME;
             m_Anim.Play("Die");
-           
+            Debug.Log("Deadly Object");
+            Debug.Log(rebornTime);
             loseHeart();
+            
         }
     }
 
