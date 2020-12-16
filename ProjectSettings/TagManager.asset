@@ -10,6 +10,7 @@ TagManager:
   - Stompable
   - Flag
   - Deadly
+  - Sticky
   layers:
   - Default
   - TransparentFX

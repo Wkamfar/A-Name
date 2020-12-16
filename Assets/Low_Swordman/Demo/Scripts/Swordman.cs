@@ -6,7 +6,9 @@ using UnityEngine.UI;
 using TMPro;
 public class Swordman : PlayerController
 {
-    public Transform deathMenu;
+    private bool permaDeath = false;
+    public GameObject defaultUI;
+    public GameObject deathMenu;
     public int maxLives = 3;
     static public int lives = 3;
     static public int coinCount;
@@ -22,8 +24,8 @@ public class Swordman : PlayerController
     public Image heart1;
     public Image heart2;
     public Image heart3;
-    public int REBORNTIME = 10000;
-    private int rebornTime = 0;
+    public float REBORNTIME = 3f;
+    private float rebornTime = 0f;
     public Image damaged;
     //heart1.enabled = false;
     public void Start()
@@ -35,6 +37,22 @@ public class Swordman : PlayerController
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
         coinTextBox.text = "Points: " + coinCount.ToString();
         updateHeartsUI ();
+        disableDeathMenu();
+    }
+    public void StartFirstLevel()
+    {
+        Reset();
+        SceneManager.LoadScene(1);
+    }
+    public void Reset()
+    {
+        lives = 3;
+        coinCount = 0;
+    }
+    public void StartMainMenu()
+    {
+        Reset();
+        SceneManager.LoadScene(0);
     }
     private void updateHeartsUI()
     {
@@ -49,6 +67,8 @@ public class Swordman : PlayerController
         if (lives <= 0)
         {
             heart1.enabled = false;
+            enableDeathMenu();
+            permaDeath = true;
         }
     }
     private void loseHeart()
@@ -56,23 +76,29 @@ public class Swordman : PlayerController
         lives--;
         damaged.enabled = true;
         updateHeartsUI();
+        m_Anim.Play("Die");
         Debug.Log("Lost a Heart");
     }
     private void enableDeathMenu()
     {
-        //deathMenu.enabled = true;
-        foreach (Transform child in deathMenu)
+        
+        /*foreach (Transform child in deathMenu)
         {
             child.gameObject.SetActive (true);
-        }
+        }*/
+        deathMenu.SetActive(true);
+        defaultUI.SetActive(false);
     }
     private void disableDeathMenu()
     {
-        //deathMenu.enabled = false;
-        foreach (Transform child in deathMenu)
-        {
-            child.gameObject.SetActive(false);
-        }
+
+        /* foreach (Transform child in deathMenu)
+         {
+             child.gameObject.SetActive(false);
+         }
+         */
+        deathMenu.SetActive(false);
+        defaultUI.SetActive(true);
     }
     private void respawn()
     {
@@ -81,13 +107,17 @@ public class Swordman : PlayerController
         loseHeart();
         Debug.Log("Respawning");
         this.transform.position = checkpoint.position;
-        SceneManager.LoadScene(levelName);
+        
         coinCount = 0;
         coinCount += coinSave;
         coinCount -= deathPenalty;
         if (coinCount < 0)
         {
             coinCount = 0;
+        }
+        if (lives > 0)
+        {
+            SceneManager.LoadScene(levelName);
         }
     }
 
@@ -99,7 +129,7 @@ public class Swordman : PlayerController
         }
         if (rebornTime > 0)
         {
-            rebornTime--;
+            rebornTime-=Time.deltaTime;
            
         }
         else
@@ -126,7 +156,10 @@ public class Swordman : PlayerController
     public void checkInput()
     {
 
-
+        if (permaDeath == true)  
+        {
+            return;
+        }
 
         if (Input.GetKeyDown(KeyCode.S))  //아래 버튼 눌렀을때. 
         {
@@ -358,7 +391,7 @@ public class Swordman : PlayerController
         if (col.gameObject.tag == "Deadly" && timeOut <= 0 && rebornTime <= 0)
         {
             rebornTime = REBORNTIME;
-            m_Anim.Play("Die");
+            //m_Anim.Play("Die");
             Debug.Log("Deadly Object");
             Debug.Log(rebornTime);
             loseHeart();
