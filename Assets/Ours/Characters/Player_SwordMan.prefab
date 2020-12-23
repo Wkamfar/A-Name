@@ -720,8 +720,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.003753662, y: 0.043790817}
-  m_Size: {x: 0.32198334, y: 0.99671555}
+  m_Offset: {x: 0.011974335, y: 0.19163513}
+  m_Size: {x: 0.39118958, y: 1.2924042}
   m_Direction: 0
 --- !u!114 &7380447369412726278
 MonoBehaviour:
@@ -745,6 +745,7 @@ MonoBehaviour:
   JumpCount: 2
   jumpForce: 15
   bounceFraction: 0.5
+  defaultUI: {fileID: 0}
   deathMenu: {fileID: 0}
   maxLives: 3
   sameCoinCount: 0
@@ -758,6 +759,8 @@ MonoBehaviour:
   heart1: {fileID: 0}
   heart2: {fileID: 0}
   heart3: {fileID: 0}
+  REBORNTIME: 3
+  damaged: {fileID: 0}
 --- !u!1 &7380447369455657262
 GameObject:
   m_ObjectHideFlags: 0

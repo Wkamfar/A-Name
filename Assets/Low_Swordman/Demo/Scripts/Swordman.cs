@@ -41,18 +41,21 @@ public class Swordman : PlayerController
     }
     public void StartFirstLevel()
     {
+        Debug.Log("First Level Lmao");
         Reset();
         SceneManager.LoadScene(1);
     }
-    public void Reset()
+    private void Reset()
     {
         lives = 3;
         coinCount = 0;
     }
     public void StartMainMenu()
     {
+        Debug.Log("Start Menu Lmao");
         Reset();
         SceneManager.LoadScene(0);
+        
     }
     private void updateHeartsUI()
     {
@@ -135,7 +138,7 @@ public class Swordman : PlayerController
         else
         {
             damaged.enabled = false;
-            Debug.Log("No longer Invinsible");
+            
         }
         checkInput();
 
@@ -396,6 +399,11 @@ public class Swordman : PlayerController
             Debug.Log(rebornTime);
             loseHeart();
             
+        }
+        else if (col.gameObject.tag == "Sticky")
+        {
+            JumpCount = 2;
+            Debug.Log(JumpCount);
         }
     }
 
