@@ -6,6 +6,14 @@ using UnityEngine.UI;
 using TMPro;
 public class Swordman : PlayerController
 {
+    public float breakingTime = 2f;
+    public float dashSpeed = 500f;
+    private float DASHCOOLDOWN = 1f;
+    public float dashCooldown = 1f;
+    public float defaultMoveSpeed = 6f;
+    public float currentMoveSpeed = 6f;
+    public float rightBounceSpeed = 1000f;
+    public float bounceSpeed = 1000f;
     private bool permaDeath = false;
     public GameObject defaultUI;
     public GameObject deathMenu;
@@ -27,6 +35,8 @@ public class Swordman : PlayerController
     public float REBORNTIME = 3f;
     private float rebornTime = 0f;
     public Image damaged;
+    public float GRAVITYTIMER = 3f;
+    private float gravityTimer = 0f;
     //heart1.enabled = false;
     public void Start()
     {
@@ -81,6 +91,7 @@ public class Swordman : PlayerController
         updateHeartsUI();
         m_Anim.Play("Die");
         Debug.Log("Lost a Heart");
+        currentMoveSpeed = defaultMoveSpeed;
     }
     private void enableDeathMenu()
     {
@@ -138,8 +149,22 @@ public class Swordman : PlayerController
         else
         {
             damaged.enabled = false;
-            
+
         }
+        if (gravityTimer > 0)
+        {
+            gravityTimer -= Time.deltaTime;
+            m_rigidbody.gravityScale = 0;
+        }
+        else
+        {
+            m_rigidbody.gravityScale = 3;
+        }
+        if (dashCooldown > 0)
+        {
+            dashCooldown -= Time.deltaTime;
+        }
+        
         checkInput();
 
         if (m_rigidbody.velocity.magnitude > 30)
@@ -179,7 +204,11 @@ public class Swordman : PlayerController
             IsSit = false;
 
         }
-
+        else if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown <0)
+        {
+            m_rigidbody.AddForce(Vector2.right * dashSpeed);
+            dashCooldown = DASHCOOLDOWN;
+        }
 
         // sit나 die일때 애니메이션이 돌때는 다른 애니메이션이 되지 않게 한다. 
         if (m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Sit") || m_Anim.GetCurrentAnimatorStateInfo(0).IsName("Die"))
@@ -371,10 +400,55 @@ public class Swordman : PlayerController
 
             Debug.Log("Hitting Stompable object");
         }
+        else if (col.CompareTag("Speed") && timeOut <= 0)
+        {
+            timeOut = 3;
+            col.gameObject.SetActive(false);
+            Destroy(col.gameObject);
+            currentMoveSpeed = currentMoveSpeed * 2;
+            MoveSpeed = currentMoveSpeed;
+        }
+        else if (col.CompareTag("ZeroGravity") && timeOut <= 0)
+        {
+            timeOut = 3;
+            col.gameObject.SetActive(false);
+            Destroy(col.gameObject);
+            gravityTimer = GRAVITYTIMER;
+
+        }
+        else if (col.CompareTag("Invinsible") && timeOut <= 0)
+        {
+            timeOut = 3;
+            col.gameObject.SetActive(false);
+            Destroy(col.gameObject);
+            rebornTime = REBORNTIME;
+            damaged.enabled = true;
+
+        }
+        else if (col.CompareTag("heartPowerUp") && timeOut <= 0)
+        {
+            timeOut = 3;
+            col.gameObject.SetActive(false);
+            Destroy(col.gameObject);
+            lives++;
+            if (lives > maxLives)
+            {
+                lives = maxLives;
+            }
+            else if(lives == 2)
+            {
+                heart2.enabled = true;
+            }
+            else if(lives == 3)
+            {
+                heart3.enabled = true;
+            }
+
+        }
         else if (col.CompareTag("Flag") && timeOut <= 0)
         {
             
-            Debug.Log("Trying to load L2");
+            Debug.Log("Trying tqo load L2");
             SceneManager.LoadScene("L2");
             levelName = "L2";
             
@@ -388,6 +462,22 @@ public class Swordman : PlayerController
            // m_Anim.Play("Die");
             //lives--;
         }
+        else if (col.gameObject.tag == "Bouncy")
+        {
+            m_rigidbody.AddForce(Vector2.up * bounceSpeed);
+
+        }
+        else if (col.gameObject.tag == "rightBouncy")
+        {
+            m_rigidbody.AddForce(Vector2.right * rightBounceSpeed);
+
+        }
+        else if (col.gameObject.tag == "bothBounce")
+        {
+            m_rigidbody.AddForce(Vector2.up * bounceSpeed);
+            m_rigidbody.AddForce(Vector2.right * rightBounceSpeed);
+        }
+        
     }
     void OnCollisionStay2D (Collision2D col)
     {
@@ -402,8 +492,19 @@ public class Swordman : PlayerController
         }
         else if (col.gameObject.tag == "Sticky")
         {
-            JumpCount = 2;
-            Debug.Log(JumpCount);
+            currentJumpCount = 2;
+            MoveSpeed = 2f;
+            Debug.Log(currentJumpCount);
+           
+        }
+        else if (col.gameObject.tag == "Slide")
+        {
+
+            m_rigidbody.angularDrag = 0;
+        }
+        else
+        {
+            MoveSpeed = currentMoveSpeed;
         }
     }
 

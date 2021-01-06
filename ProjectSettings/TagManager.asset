@@ -11,6 +11,15 @@ TagManager:
   - Flag
   - Deadly
   - Sticky
+  - Bouncy
+  - rightBouncy
+  - bothBounce
+  - Slide
+  - Speed
+  - ZeroGravity
+  - Invinsible
+  - heartPowerUp
+  - Breakable
   layers:
   - Default
   - TransparentFX

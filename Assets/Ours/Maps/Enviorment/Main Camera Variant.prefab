@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -459.78, y: 230.29}
+  m_AnchoredPosition: {x: -254.45999, y: 144.00003}
   m_SizeDelta: {x: 57.232727, y: 60.477478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &99816872
@@ -109,7 +109,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -345.32, y: 230.29}
+  m_AnchoredPosition: {x: -140, y: 144}
   m_SizeDelta: {x: 57.232727, y: 60.477478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &337723602
@@ -184,7 +184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -402.55, y: 230.29}
+  m_AnchoredPosition: {x: -197.22998, y: 144.00003}
   m_SizeDelta: {x: 57.232727, y: 60.477478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &933422027
@@ -259,7 +259,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 414.3, y: 238.01}
+  m_AnchoredPosition: {x: 217, y: 146.75}
   m_SizeDelta: {x: 352.0927, y: 54.974976}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &951124664
@@ -412,7 +412,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -539, y: 232.88}
+  m_AnchoredPosition: {x: -333.68, y: 146.59004}
   m_SizeDelta: {x: 101.199814, y: 55.291534}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1184882638
@@ -693,7 +693,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1794708787072841984, guid: 72e6088c5d794f94da913bc90b10b4fc, type: 3}
       propertyPath: m_Name
-      value: Main Camera
+      value: Main Camera Variant
       objectReference: {fileID: 0}
     - target: {fileID: 1794708787072841985, guid: 72e6088c5d794f94da913bc90b10b4fc, type: 3}
       propertyPath: Target
@@ -757,6 +757,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1794708788277751911, guid: 72e6088c5d794f94da913bc90b10b4fc, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1794708788383121046, guid: 72e6088c5d794f94da913bc90b10b4fc, type: 3}
+      propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1794708788383121047, guid: 72e6088c5d794f94da913bc90b10b4fc, type: 3}
