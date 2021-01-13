@@ -16,7 +16,7 @@ public class BreakingGround : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (startTimer = true)
+        if (startTimer == true)
         {
             breakingTime += Time.deltaTime;
             if(breakingTime >= BREAKINGTIME)
@@ -31,6 +31,7 @@ public class BreakingGround : MonoBehaviour
         if (col.gameObject.tag == "Player" )
         {
             startTimer = true;
+            this.gameObject.GetComponent<Renderer>().material.color = new Color(233f / 255f, 0f, 0f);
         }
     }
 }

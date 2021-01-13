@@ -21,7 +21,6 @@ public class Swordman : PlayerController
     static public int lives = 3;
     static public int coinCount;
     public int sameCoinCount;
-    public string levelName = "Demo";
     public int coinSave = 0;
     public int deathPenalty = 2;
     //public Text coinTextBox;
@@ -121,7 +120,7 @@ public class Swordman : PlayerController
         loseHeart();
         Debug.Log("Respawning");
         this.transform.position = checkpoint.position;
-        
+        Debug.Log(lives);
         coinCount = 0;
         coinCount += coinSave;
         coinCount -= deathPenalty;
@@ -131,7 +130,7 @@ public class Swordman : PlayerController
         }
         if (lives > 0)
         {
-            SceneManager.LoadScene(levelName);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
@@ -448,9 +447,9 @@ public class Swordman : PlayerController
         else if (col.CompareTag("Flag") && timeOut <= 0)
         {
             
-            Debug.Log("Trying tqo load L2");
-            SceneManager.LoadScene("L2");
-            levelName = "L2";
+            Debug.Log("Trying to load L2");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        
             
         }
     }

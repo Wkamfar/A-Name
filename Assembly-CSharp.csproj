@@ -62,6 +62,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\Ours\Scripts\RotationManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
+     <Compile Include="Assets\Ours\Scripts\BreakingGround.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
      <Compile Include="Assets\Ours\Scripts\BlockAI.cs" />
@@ -99,7 +100,6 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\Low_Swordman\Demo\Scripts\GroundSensor.cs" />
-     <Compile Include="Assets\Ours\Scripts\BreakingGround.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
