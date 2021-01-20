@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Ours/Maps/Scenes/Demo.unity
+- path: Assets/Ours/Maps/Scenes/L3.unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0
