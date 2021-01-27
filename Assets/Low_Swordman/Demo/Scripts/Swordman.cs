@@ -39,6 +39,8 @@ public class Swordman : PlayerController
     //heart1.enabled = false;
     public void Start()
     {
+        BreakingInAPattern.tilesNeeded = 6;
+        BreakingInAPattern.numTiles = BreakingInAPattern.tilesNeeded;
         //disableDeathMenu();
         coinSave = coinCount;
         m_CapsulleCollider  = this.transform.GetComponent<CapsuleCollider2D>();
@@ -118,6 +120,7 @@ public class Swordman : PlayerController
         //enableDeathMenu();
         //Perma Death after 0 with loss menu
         loseHeart();
+        
         Debug.Log("Respawning");
         this.transform.position = checkpoint.position;
         Debug.Log(lives);
