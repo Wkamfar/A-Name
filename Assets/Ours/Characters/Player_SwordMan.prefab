@@ -745,11 +745,17 @@ MonoBehaviour:
   JumpCount: 2
   jumpForce: 15
   bounceFraction: 0.5
+  breakingTime: 2
+  dashSpeed: 500
+  dashCooldown: 1
+  defaultMoveSpeed: 6
+  currentMoveSpeed: 6
+  rightBounceSpeed: 1000
+  bounceSpeed: 1000
   defaultUI: {fileID: 0}
   deathMenu: {fileID: 0}
   maxLives: 3
   sameCoinCount: 0
-  levelName: Demo
   coinSave: 0
   deathPenalty: 2
   coinTextBox: {fileID: 0}
@@ -761,6 +767,7 @@ MonoBehaviour:
   heart3: {fileID: 0}
   REBORNTIME: 3
   damaged: {fileID: 0}
+  GRAVITYTIMER: 3
 --- !u!1 &7380447369455657262
 GameObject:
   m_ObjectHideFlags: 0
