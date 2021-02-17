@@ -745,6 +745,10 @@ MonoBehaviour:
   JumpCount: 2
   jumpForce: 15
   bounceFraction: 0.5
+  breakingParticle: {fileID: 339768192656408685, guid: b1235791e55544c4ba77117d4bf00b57, type: 3}
+  particleDuration: 1
+  pickUpHeart: {fileID: 100004, guid: 3af6f68141914ca43ba39b2403757bd0, type: 3}
+  loseHeartFx: {fileID: 100006, guid: bcaff8fc36e95584bb27cc3cf7c6cb14, type: 3}
   breakingTime: 2
   dashSpeed: 500
   dashCooldown: 1
@@ -753,7 +757,7 @@ MonoBehaviour:
   rightBounceSpeed: 1000
   bounceSpeed: 1000
   defaultUI: {fileID: 0}
-  deathMenu: {fileID: 0}
+  deathMenu: {fileID: 7327978331852611096, guid: a9779febca416af469133c1019f5f0c2, type: 3}
   maxLives: 3
   sameCoinCount: 0
   coinSave: 0

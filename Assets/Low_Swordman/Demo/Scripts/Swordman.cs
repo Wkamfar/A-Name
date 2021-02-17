@@ -6,6 +6,12 @@ using UnityEngine.UI;
 using TMPro;
 public class Swordman : PlayerController
 {
+    //Particles
+    public GameObject breakingParticle;
+    public float particleDuration = 1f;
+    public GameObject pickUpHeart;
+    public GameObject loseHeartFx;
+    //Others
     public float breakingTime = 2f;
     public float dashSpeed = 500f;
     private float DASHCOOLDOWN = 1f;
@@ -93,6 +99,8 @@ public class Swordman : PlayerController
         m_Anim.Play("Die");
         Debug.Log("Lost a Heart");
         currentMoveSpeed = defaultMoveSpeed;
+        GameObject loseHeartVFX = Instantiate(loseHeartFx, this.transform.position, Quaternion.identity);
+        Destroy(loseHeartVFX, particleDuration);
     }
     private void enableDeathMenu()
     {
@@ -445,7 +453,8 @@ public class Swordman : PlayerController
             {
                 heart3.enabled = true;
             }
-
+            GameObject PickingHeart = Instantiate(pickUpHeart, this.transform.position, Quaternion.identity);
+            Destroy(PickingHeart, particleDuration);
         }
         else if (col.CompareTag("Flag") && timeOut <= 0)
         {
@@ -478,6 +487,14 @@ public class Swordman : PlayerController
         {
             m_rigidbody.AddForce(Vector2.up * bounceSpeed);
             m_rigidbody.AddForce(Vector2.right * rightBounceSpeed);
+        }
+        else if (col.gameObject.tag == "Breakable")
+        {
+            GameObject breakingBlock = Instantiate(breakingParticle, this.transform.position, Quaternion.identity);
+            Destroy(breakingBlock, particleDuration);
+            currentJumpCount = 0;
+            Debug.Log(currentJumpCount + "");
+            Debug.Log("Player touching Breakable");
         }
         
     }

@@ -267,6 +267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   player: {fileID: 1829205681}
+  cannonballLife: 30
 --- !u!212 &821621899
 SpriteRenderer:
   m_ObjectHideFlags: 0

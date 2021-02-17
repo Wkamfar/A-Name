@@ -6,10 +6,12 @@ public class CannonballScript : MonoBehaviour
 {
     public float speed = 3f;
     public Transform player;
+    public float cannonballLife = 30f;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        Destroy(this.gameObject, cannonballLife );
     }
 
     // Update is called once per frame
@@ -19,6 +21,7 @@ public class CannonballScript : MonoBehaviour
     }
     void OnCollisionEnter2D(Collision2D col)
     {
-        Destroy(this.gameObject);
+        Destroy(this.gameObject, 0.1f);
+        Debug.Log("Cannonball hit something");
     }
 }

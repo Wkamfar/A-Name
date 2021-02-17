@@ -12,7 +12,6 @@ public class BreakingInAPattern : MonoBehaviour
     public static int numTiles = 10;
     public float xOffset = 10f;
     public float yOffset = 0f;
-    public Transform breakingParticle;
     public Transform player;
     public static int tilesNeeded = 10;
     void Start()
@@ -42,9 +41,9 @@ public class BreakingInAPattern : MonoBehaviour
         {
             startTimer = true;
             Vector3 spawnposition = this.transform.position + new Vector3(xOffset, yOffset);
+            
 
             numTiles--;
-            Instantiate(breakingParticle, spawnposition - new Vector3(0, 0), Quaternion.identity);
             if (numTiles > 0)
             {
                 Instantiate(spawningObject, spawnposition, Quaternion.identity);
