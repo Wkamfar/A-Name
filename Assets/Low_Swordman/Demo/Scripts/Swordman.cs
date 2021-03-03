@@ -11,7 +11,13 @@ public class Swordman : PlayerController
     public float particleDuration = 1f;
     public GameObject pickUpHeart;
     public GameObject loseHeartFx;
+    //Weapons
+    public GameObject swordBullet;
+    public float swordSpeed = 500f;
+    //Direction
+    private bool swordsmanFaceRight = false;
     //Others
+    
     public float breakingTime = 2f;
     public float dashSpeed = 500f;
     private float DASHCOOLDOWN = 1f;
@@ -249,6 +255,16 @@ public class Swordman : PlayerController
 
 
                 m_Anim.Play("Attack");
+                Vector3 spawnposition = this.transform.position + new Vector3(0, 0);
+                 GameObject shoot = Instantiate(swordBullet, spawnposition, Quaternion.identity);
+                if(swordsmanFaceRight == true)
+                {
+                    shoot.GetComponent<Rigidbody2D>().AddForce(Vector2.right * swordSpeed);
+                }
+                else if(swordsmanFaceRight == false)
+                {
+                    shoot.GetComponent<Rigidbody2D>().AddForce(Vector2.left * swordSpeed);
+                }
             }
             else
             {
@@ -279,6 +295,7 @@ public class Swordman : PlayerController
 
         if (Input.GetKey(KeyCode.D))
         {
+            swordsmanFaceRight = true;
 
             if (isGrounded)  // 땅바닥에 있었을때. 
             {
@@ -313,7 +330,7 @@ public class Swordman : PlayerController
         }
         else if (Input.GetKey(KeyCode.A))
         {
-
+            swordsmanFaceRight = false;
 
             if (isGrounded)  // 땅바닥에 있었을때. 
             {
