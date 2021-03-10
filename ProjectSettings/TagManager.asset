@@ -20,6 +20,9 @@ TagManager:
   - Invinsible
   - heartPowerUp
   - Breakable
+  - FxTemporaire
+  - SwordBullet
+  - CannonAI
   layers:
   - Default
   - TransparentFX

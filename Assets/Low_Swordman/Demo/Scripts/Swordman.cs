@@ -222,7 +222,15 @@ public class Swordman : PlayerController
         }
         else if (Input.GetKeyDown(KeyCode.LeftShift) && dashCooldown <0)
         {
-            m_rigidbody.AddForce(Vector2.right * dashSpeed);
+            if (swordsmanFaceRight == true)
+            {
+                m_rigidbody.AddForce(Vector2.right * dashSpeed);
+            }
+            else if (swordsmanFaceRight == false)
+            {
+                m_rigidbody.AddForce(Vector2.left * dashSpeed);
+            }
+            
             dashCooldown = DASHCOOLDOWN;
         }
 
@@ -255,14 +263,16 @@ public class Swordman : PlayerController
 
 
                 m_Anim.Play("Attack");
-                Vector3 spawnposition = this.transform.position + new Vector3(0, 0);
-                 GameObject shoot = Instantiate(swordBullet, spawnposition, Quaternion.identity);
-                if(swordsmanFaceRight == true)
+                if (swordsmanFaceRight == true)
                 {
+                    Vector3 spawnposition = this.transform.position + new Vector3(.6f, 0.1f);
+                    GameObject shoot = Instantiate(swordBullet, spawnposition, Quaternion.Euler(0f, 0f, -90f));
                     shoot.GetComponent<Rigidbody2D>().AddForce(Vector2.right * swordSpeed);
                 }
                 else if(swordsmanFaceRight == false)
                 {
+                    Vector3 spawnposition = this.transform.position + new Vector3(-.6f, 0.1f);
+                    GameObject shoot = Instantiate(swordBullet, spawnposition, swordBullet.transform.rotation);
                     shoot.GetComponent<Rigidbody2D>().AddForce(Vector2.left * swordSpeed);
                 }
             }
