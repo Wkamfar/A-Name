@@ -66,7 +66,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
      <Compile Include="Assets\Ours\Scripts\AI\EnemyAI.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
-     <Compile Include="Assets\Low_Swordman\Demo\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\CameraController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
@@ -82,8 +82,8 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-     <Compile Include="Assets\Low_Swordman\Demo\Scripts\GroundSensor.cs" />
-     <Compile Include="Assets\Low_Swordman\Demo\Scripts\Swordman.cs" />
+     <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\GroundSensor.cs" />
+     <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Swordman.cs" />
      <Compile Include="Assets\Ours\Scripts\StartMenu.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
      <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />
@@ -102,9 +102,9 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
      <Compile Include="Assets\Ours\Scripts\RotationManager.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-     <Compile Include="Assets\Low_Swordman\Demo\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\PlayerController.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\Low_Swordman\Demo\Scripts\Demo_GM.cs" />
+     <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Demo_GM.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Overlay.shader" />

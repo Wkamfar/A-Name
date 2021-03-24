@@ -22,7 +22,14 @@ public class SwordBullet : MonoBehaviour
         {
             Destroy(col.gameObject);
         }
+        else if(col.gameObject.tag == "Stompable")
+        {
+            col.gameObject.SetActive(false);
+            Destroy(col.gameObject);
+            //add coins for killing this object
+        }
         Destroy(this.gameObject);
+        
     }
 
 }

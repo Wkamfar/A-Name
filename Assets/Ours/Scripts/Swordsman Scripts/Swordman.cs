@@ -31,9 +31,8 @@ public class Swordman : PlayerController
     //UI Managers
     public int maxLives = 3;
     public int deathPenalty = 2;
-    //UI Coins
-    public int sameCoinCount;
-    public int coinSave = 0;
+    //Coin Saves
+    private int coinSave;
     //Power Ups
     public float GRAVITYTIMER = 3f;
     private float gravityTimer = 0f;
@@ -53,6 +52,8 @@ public class Swordman : PlayerController
     //Player Move Speed
     public float defaultMoveSpeed = 6f;
     public float currentMoveSpeed = 6f;
+    //AI
+    public float enemyBounce = 500f;
     //Others
     public float breakingTime = 2f;
     public void Start()
@@ -63,7 +64,7 @@ public class Swordman : PlayerController
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
         //Initializing the coin value
         coinTextBox.text = "Points: " + coinCount.ToString();
-        coinSave = coinCount; //Is needed?
+        coinSave = coinCount;
         //Initializing UI
         updateHeartsUI();
         disableDeathMenu();
@@ -137,8 +138,7 @@ public class Swordman : PlayerController
         Debug.Log("Respawning");
         this.transform.position = checkpoint.position;
         Debug.Log(lives);
-        coinCount = 0; //Is this needed?
-        coinCount += coinSave; //is this needed?
+        coinCount = coinSave;
         coinCount -= deathPenalty;
         if (coinCount < 0)
         {
@@ -292,16 +292,6 @@ public class Swordman : PlayerController
 
             }
         }
-
-
-        if (Input.GetKey(KeyCode.Alpha1))
-        {
-            m_Anim.Play("Die");
-
-        }
-
-        // 기타 이동 인풋.
-
         if (Input.GetKey(KeyCode.D))
         {
             swordsmanFaceRight = true;
@@ -400,11 +390,6 @@ public class Swordman : PlayerController
 
 
     }
-
-
-  
-
-
     protected override void LandingEvent()
     {
 
@@ -413,7 +398,8 @@ public class Swordman : PlayerController
             m_Anim.Play("Idle");
 
     }
-
+    ////////////////////////////////////////////////////////////Collisions and Colliders//////////////////////////////////////////////////////////////////
+    //Come Back to timeOut Variable
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.CompareTag("Coin") && timeOut <= 0)
@@ -431,9 +417,10 @@ public class Swordman : PlayerController
             Destroy(col.gameObject);
             coinCount += 3;
             coinTextBox.text = "Points: " + coinCount.ToString();
-            //transform.position = Vector2.MoveTowards(transform.position, moveSpots[randSpotIndex].position, speed * Time.deltaTime);
-            //m_rigidbody.AddForce(Vector2.up * 10);
-
+            //transform.position = Vector2.MoveTowards(transform.position, moveSpots[randSpotIndex].position, speed * Time.deltaTime);\
+            gravityTimer = 0.1f;
+            m_rigidbody.velocity = Vector3.zero;
+            m_rigidbody.AddForce(Vector2.up * enemyBounce);
             Debug.Log("Hitting Stompable object");
         }
         else if (col.CompareTag("Speed") && timeOut <= 0)
@@ -484,11 +471,7 @@ public class Swordman : PlayerController
         }
         else if (col.CompareTag("Flag") && timeOut <= 0)
         {
-            
-            Debug.Log("Trying to load L2");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-        
-            
         }
     }
 
