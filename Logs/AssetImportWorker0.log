@@ -1,0 +1,185 @@
+Using pre-set license
+Built from '2020.2/staging' branch; Version is '2020.2.6f1 (8a2143876886) revision 9052483'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19041.867; Version 2004; 64bit' Language: 'en' Physical Memory: 16210 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.2.6f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/wkamf/2D Platformer
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+54231
+Successfully changed project path to: C:/Users/wkamf/2D Platformer
+C:/Users/wkamf/2D Platformer
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 48.24 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.2.6f1 (8a2143876886)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.2.6f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/wkamf/2D Platformer/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2080 SUPER (ID=0x1e81)
+    Vendor:   
+    VRAM:     8010 MB
+    Driver:   27.21.14.5730
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.2.6f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.2.6f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.2.6f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56228
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.2.6f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001897 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 49.55 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.844 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001250 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 66.00 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.850 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 0.56 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1871 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 91.2 MB.
+System memory in use after: 91.2 MB.
+
+Unloading 20 unused Assets to reduce memory usage. Loaded Objects now: 2328.
+Total: 2.304900 ms (FindLiveObjects: 0.227100 ms CreateObjectMapping: 0.363700 ms MarkObjects: 1.648800 ms  DeleteObjects: 0.063900 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs
+  artifactKey: Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs using Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '982398f705a33e89e3e2a8c0dedd70cf') in 0.029608 seconds
+  Import took 0.035589 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 723.067870 seconds.
+  path: Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs
+  artifactKey: Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs using Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9012653f541371a0a652b2c5e5ff025') in 0.005864 seconds
+  Import took 0.010187 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000755 seconds.
+  path: Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs
+  artifactKey: Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs using Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9012653f541371a0a652b2c5e5ff025') in 0.002269 seconds
+  Import took 0.005975 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.003443 seconds.
+  path: Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs
+  artifactKey: Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs using Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e85c34a87eb4250917b8fe53366f815e') in 0.002772 seconds
+  Import took 0.006535 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005209 seconds.
+  path: Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs
+  artifactKey: Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs using Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e85c34a87eb4250917b8fe53366f815e') in 0.002037 seconds
+  Import took 0.004947 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 19.363043 seconds.
+  path: Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs
+  artifactKey: Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs using Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4c30846e4eb089faecf571899b58fba') in 0.002958 seconds
+  Import took 0.007003 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.002971 seconds.
+  path: Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs
+  artifactKey: Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs using Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4c30846e4eb089faecf571899b58fba') in 0.002211 seconds
+  Import took 0.005227 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001496 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.52 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.700 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.59 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1847 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.6 MB.
+System memory in use after: 89.8 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 2330.
+Total: 1.636200 ms (FindLiveObjects: 0.181500 ms CreateObjectMapping: 0.064500 ms MarkObjects: 1.376100 ms  DeleteObjects: 0.013400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 38.808267 seconds.
+  path: Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs
+  artifactKey: Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Ours/Scripts/Swordsman Scripts/Swordman.cs using Guid(e0f929248d997d24fa80adaa46f30d2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fb48ef4ee6094018084303e1eee9f773') in 0.004058 seconds
+  Import took 0.007881 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001301 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.55 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.684 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.51 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1847 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.7 MB.
+System memory in use after: 89.8 MB.
+
+Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 2332.
+Total: 1.521200 ms (FindLiveObjects: 0.147200 ms CreateObjectMapping: 0.051600 ms MarkObjects: 1.308100 ms  DeleteObjects: 0.013400 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

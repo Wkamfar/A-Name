@@ -54,6 +54,9 @@ public class Swordman : PlayerController
     public float currentMoveSpeed = 6f;
     //AI
     public float enemyBounce = 500f;
+    //Menu Ui and Variables
+    public int menuNumber = 0;
+    public bool menuOpen = false;
     //Others
     public float breakingTime = 2f;
     public void Start()
@@ -198,7 +201,21 @@ public class Swordman : PlayerController
     ///////////////////////////////////////////////////////////////Inputs///////////////////////////////////////////////////////////////
     public void checkInput()
     {
-
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            menuNumber++;
+            if (menuNumber == 1)
+            {
+                menuOpen = true;
+                Debug.Log("Menu Open");
+            }
+            else
+            {
+                menuNumber = 0;
+                menuOpen = false;
+                Debug.Log("Menu Closed");
+            }
+        }
         if (permaDeath == true)  
         {
             return;
