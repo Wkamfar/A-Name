@@ -22,4 +22,18 @@ public class BlockAI : MonoBehaviour
             randSpotIndex = Random.Range(0, moveSpots.Length);
         }
     }
+    void OnCollisionStay2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            col.transform.parent = transform;
+        }
+    }
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "Player")
+        {
+            col.transform.parent = null;
+        }
+    }
 }

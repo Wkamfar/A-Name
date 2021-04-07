@@ -28,6 +28,7 @@ public class Swordman : PlayerController
     public TextMeshProUGUI coinTextBox;
     public Image damaged;
     private bool permaDeath = false;
+    public GameObject PauseCanvas;
     //UI Managers
     public int maxLives = 3;
     public int deathPenalty = 2;
@@ -201,26 +202,34 @@ public class Swordman : PlayerController
     ///////////////////////////////////////////////////////////////Inputs///////////////////////////////////////////////////////////////
     public void checkInput()
     {
+        if (permaDeath == true)
+        {
+            return;
+        }
         if (Input.GetKeyDown(KeyCode.M))
         {
             menuNumber++;
             if (menuNumber == 1)
             {
+                Time.timeScale = 0;
                 menuOpen = true;
+                PauseCanvas.SetActive(true);
                 Debug.Log("Menu Open");
             }
             else
             {
+                Time.timeScale = 1;
                 menuNumber = 0;
                 menuOpen = false;
+                PauseCanvas.SetActive(false);
                 Debug.Log("Menu Closed");
             }
         }
-        if (permaDeath == true)  
+        if (menuOpen == true)
         {
             return;
         }
-
+        //if (Input.Ge)
         if (Input.GetKeyDown(KeyCode.S))  //아래 버튼 눌렀을때. 
         {
 
