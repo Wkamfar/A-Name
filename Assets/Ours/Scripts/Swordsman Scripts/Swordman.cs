@@ -26,12 +26,16 @@ public class Swordman : PlayerController
     public GameObject defaultUI;
     public GameObject deathMenu;
     public TextMeshProUGUI coinTextBox;
+    public TextMeshProUGUI timerTextBox;
     public Image damaged;
     private bool permaDeath = false;
     public GameObject PauseCanvas;
     //UI Managers
     public int maxLives = 3;
     public int deathPenalty = 2;
+    //Speedrun Timer 
+    private float speedrunTimer = 0f;
+    private int speedrunMinute = 0;
     //Coin Saves
     private int coinSave;
     //Power Ups
@@ -153,17 +157,24 @@ public class Swordman : PlayerController
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
-    //Come Back Later, Haven't done anything yet
-    private void Update()
+    //For The Timers
+    private void updateTimers()
     {
+        speedrunTimer += Time.deltaTime;
+        timerTextBox.text = speedrunMinute.ToString() + ":" + speedrunTimer.ToString("0.00");
+        if (speedrunTimer >= 60)
+        {
+            speedrunTimer = 0;
+            speedrunMinute++;
+        }
         if (timeOut > 0)
         {
             timeOut--;
         }
         if (rebornTime > 0)
         {
-            rebornTime-=Time.deltaTime;
-           
+            rebornTime -= Time.deltaTime;
+
         }
         else
         {
@@ -183,7 +194,11 @@ public class Swordman : PlayerController
         {
             dashCooldown -= Time.deltaTime;
         }
-        
+    }
+    //Come Back Later, Haven't done anything yet
+    private void Update()
+    {
+        updateTimers();
         checkInput();
 
         if (m_rigidbody.velocity.magnitude > 30)
@@ -229,6 +244,7 @@ public class Swordman : PlayerController
         {
             return;
         }
+
         //if (Input.Ge)
         if (Input.GetKeyDown(KeyCode.S))  //아래 버튼 눌렀을때. 
         {
@@ -497,6 +513,7 @@ public class Swordman : PlayerController
         }
         else if (col.CompareTag("Flag") && timeOut <= 0)
         {
+            Debug.Log(timerTextBox.text);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
