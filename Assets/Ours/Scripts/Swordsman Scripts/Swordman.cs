@@ -34,8 +34,8 @@ public class Swordman : PlayerController
     public int maxLives = 3;
     public int deathPenalty = 2;
     //Speedrun Timer 
-    private float speedrunTimer = 0f;
-    private int speedrunMinute = 0;
+    static private float speedrunTimer = 0f;
+    static private int speedrunMinute = 0;
     //Coin Saves
     private int coinSave;
     //Power Ups

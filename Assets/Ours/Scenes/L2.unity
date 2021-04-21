@@ -343,6 +343,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1775434576055520825, guid: e33cb3cf40e4e7440a4a3ae55949cc3d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1321361930}
+    - target: {fileID: 1775434576055520825, guid: e33cb3cf40e4e7440a4a3ae55949cc3d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1775434576877204904, guid: e33cb3cf40e4e7440a4a3ae55949cc3d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1321361930}
+    - target: {fileID: 1775434576877204904, guid: e33cb3cf40e4e7440a4a3ae55949cc3d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartFirstLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 1775434577618977683, guid: e33cb3cf40e4e7440a4a3ae55949cc3d, type: 3}
       propertyPath: m_Pivot.x
       value: 0

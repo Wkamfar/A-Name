@@ -255,7 +255,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7380447369412726278, guid: f8327b27874166b4f8afcb4a4d9be297, type: 3}
         m_TargetAssemblyTypeName: Swordman, Assembly-CSharp
         m_MethodName: StartMainMenu
         m_Mode: 1
@@ -734,7 +734,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 7380447369412726278, guid: f8327b27874166b4f8afcb4a4d9be297, type: 3}
         m_TargetAssemblyTypeName: Swordman, Assembly-CSharp
         m_MethodName: StartFirstLevel
         m_Mode: 1

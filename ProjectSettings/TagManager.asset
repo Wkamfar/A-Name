@@ -23,6 +23,7 @@ TagManager:
   - FxTemporaire
   - SwordBullet
   - CannonAI
+  - Clone
   layers:
   - Default
   - TransparentFX
