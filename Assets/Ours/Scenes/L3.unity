@@ -889,6 +889,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 100004, guid: 3af6f68141914ca43ba39b2403757bd0, type: 3}
     - target: {fileID: 7380447369412726278, guid: f8327b27874166b4f8afcb4a4d9be297, type: 3}
+      propertyPath: playerCamera
+      value: 
+      objectReference: {fileID: 1882529645}
+    - target: {fileID: 7380447369412726278, guid: f8327b27874166b4f8afcb4a4d9be297, type: 3}
       propertyPath: timerTextBox
       value: 
       objectReference: {fileID: 1661609849}
@@ -7192,6 +7196,11 @@ PrefabInstance:
       objectReference: {fileID: 2007767432}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fe0961523f2c344092d5c67364d24cb, type: 3}
+--- !u!1 &1882529645 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4758104988067887264, guid: 2fe0961523f2c344092d5c67364d24cb, type: 3}
+  m_PrefabInstance: {fileID: 1882529644}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2007767432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7380447369412726273, guid: f8327b27874166b4f8afcb4a4d9be297, type: 3}

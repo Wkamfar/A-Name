@@ -62,6 +62,8 @@ public class Swordman : PlayerController
     //Menu Ui and Variables
     public int menuNumber = 0;
     public bool menuOpen = false;
+    //Camera Variables
+    public GameObject playerCamera;
     //Others
     public float breakingTime = 2f;
     public void Start()
@@ -70,6 +72,8 @@ public class Swordman : PlayerController
         m_CapsulleCollider = this.transform.GetComponent<CapsuleCollider2D>();
         m_Anim = this.transform.Find("model").GetComponent<Animator>();
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
+        //Camera location
+        playerCamera.GetComponent<CameraController>();
         //Initializing the coin value
         coinTextBox.text = "Points: " + coinCount.ToString();
         coinSave = coinCount;
@@ -217,6 +221,10 @@ public class Swordman : PlayerController
     ///////////////////////////////////////////////////////////////Inputs///////////////////////////////////////////////////////////////
     public void checkInput()
     {
+        if (Input.anyKeyDown)
+        {
+            //playerCamera.GetComponent<CameraController>();
+        }
         if (permaDeath == true)
         {
             return;
@@ -455,8 +463,9 @@ public class Swordman : PlayerController
         else if (col.CompareTag("Stompable") && timeOut <= 0)
         {
             timeOut = 3;
-            col.gameObject.SetActive(false);
-            Destroy(col.gameObject);
+            Destroy(col.gameObject.transform.parent.gameObject);
+            //col.gameObject.SetActive(false);
+            //Destroy(col.gameObject);
             coinCount += 3;
             coinTextBox.text = "Points: " + coinCount.ToString();
             //transform.position = Vector2.MoveTowards(transform.position, moveSpots[randSpotIndex].position, speed * Time.deltaTime);\
@@ -552,7 +561,7 @@ public class Swordman : PlayerController
     }
     void OnCollisionStay2D (Collision2D col)
     {
-        if (col.gameObject.tag == "Deadly" && timeOut <= 0 && rebornTime <= 0)
+        if ((col.gameObject.tag == "Deadly" || col.gameObject.tag == "Slayable") && timeOut <= 0 && rebornTime <= 0)
         {
             rebornTime = REBORNTIME;
             //m_Anim.Play("Die");

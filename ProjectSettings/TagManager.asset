@@ -24,6 +24,8 @@ TagManager:
   - SwordBullet
   - CannonAI
   - Clone
+  - Gustavo
+  - Slayable
   layers:
   - Default
   - TransparentFX

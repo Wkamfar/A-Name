@@ -28,6 +28,11 @@ public class SwordBullet : MonoBehaviour
             Destroy(col.gameObject);
             //add coins for killing this object
         }
+        else if(col.gameObject.tag == "Slayable")
+        {
+            col.gameObject.SetActive(false);
+            Destroy(col.gameObject);
+        }
         Destroy(this.gameObject);
         
     }
