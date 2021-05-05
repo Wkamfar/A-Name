@@ -64,6 +64,7 @@ public class Swordman : PlayerController
     public bool menuOpen = false;
     //Camera Variables
     public GameObject playerCamera;
+    private CameraController playerCameraController;
     //Others
     public float breakingTime = 2f;
     public void Start()
@@ -73,7 +74,7 @@ public class Swordman : PlayerController
         m_Anim = this.transform.Find("model").GetComponent<Animator>();
         m_rigidbody = this.transform.GetComponent<Rigidbody2D>();
         //Camera location
-        playerCamera.GetComponent<CameraController>();
+        playerCameraController = playerCamera.GetComponent<CameraController>();
         //Initializing the coin value
         coinTextBox.text = "Points: " + coinCount.ToString();
         coinSave = coinCount;
@@ -223,7 +224,7 @@ public class Swordman : PlayerController
     {
         if (Input.anyKeyDown)
         {
-            //playerCamera.GetComponent<CameraController>();
+            playerCameraController.StopIntroScene();
         }
         if (permaDeath == true)
         {
@@ -522,6 +523,7 @@ public class Swordman : PlayerController
         }
         else if (col.CompareTag("Flag") && timeOut <= 0)
         {
+            playerCameraController.ResetElapsed();
             Debug.Log(timerTextBox.text);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }

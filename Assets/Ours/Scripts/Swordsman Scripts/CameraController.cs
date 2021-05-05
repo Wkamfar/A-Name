@@ -16,7 +16,6 @@ public class CameraController : MonoBehaviour {
     public float duration = 4f;
     private float introSpeed = 0.2f;
     static private float elapsed = 0f;
-
     // Use this for initialization
     public Coroutine my_co;
 
@@ -54,13 +53,13 @@ public class CameraController : MonoBehaviour {
         elapsed += Time.deltaTime;
 
     }
-    void OnTriggerEnter(Collider2D col)
+    public void StopIntroScene()
     {
-        if(col.gameObject.tag == "Flag")
-        {
-            elapsed = 0;
-        }
+        elapsed = duration;
+        Smoothvalue = 4;
     }
-
-
+    public void ResetElapsed()
+    {
+        elapsed = 0;
+    }
 }
