@@ -26,6 +26,7 @@ TagManager:
   - Clone
   - Gustavo
   - Slayable
+  - AimZone
   layers:
   - Default
   - TransparentFX

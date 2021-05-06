@@ -84,6 +84,7 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
      <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\GroundSensor.cs" />
+     <Compile Include="Assets\Ours\Scripts\AI\Clone\VerticalClone.cs" />
      <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Swordman.cs" />
      <Compile Include="Assets\Ours\Scripts\StartMenu.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
