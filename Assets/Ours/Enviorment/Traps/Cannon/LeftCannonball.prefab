@@ -137,5 +137,6 @@ MonoBehaviour:
   m_rigidbody: {fileID: 5993680349859389991}
   speed: 250
   player: {fileID: 0}
-  cannonballLife: 30
+  cannonballLife: 10
   cannonType: 1
+  hp: 1
