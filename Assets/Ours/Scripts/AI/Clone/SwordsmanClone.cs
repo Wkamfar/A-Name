@@ -7,7 +7,10 @@ using TMPro;
 public class SwordsmanClone : PlayerController
 {
 
-    
+    //AICore variables
+    private AICore core;
+    public int hp;
+    public float ls;
     //Weapons
     public GameObject swordBullet;
     public float swordSpeed = 500f;
@@ -38,6 +41,8 @@ public class SwordsmanClone : PlayerController
     public float breakingTime = 2f;
     public void Start()
     {
+        //AICore variables
+        core = new AICore(hp, ls);
         //Initializing Variables
         m_CapsulleCollider = this.transform.GetComponent<CapsuleCollider2D>();
         m_Anim = this.transform.Find("model").GetComponent<Animator>();
@@ -69,6 +74,7 @@ public class SwordsmanClone : PlayerController
     //Come Back Later, Haven't done anything yet
     private void Update()
     {
+        core.elapseTime(Time.deltaTime);
         updateTimers();
         checkInput();
 

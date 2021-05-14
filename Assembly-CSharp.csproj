@@ -57,6 +57,7 @@
      <Compile Include="Assets\Ours\Scripts\SwordBullet.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
      <Compile Include="Assets\Ours\Scripts\Breaking Scripts\BreakingGround.cs" />
+     <Compile Include="Assets\Ours\Scripts\AI\AICore.cs" />
      <Compile Include="Assets\Ours\Scripts\BlockAI.cs" />
      <Compile Include="Assets\Ours\Scripts\Breaking Scripts\BreakingInAPattern.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />

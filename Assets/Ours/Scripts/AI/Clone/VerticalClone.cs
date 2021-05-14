@@ -7,17 +7,20 @@ public class VerticalClone : MonoBehaviour
     public GameObject player;
     public float speed = 4f;
     public int verticalEnemyLives = 5;
-
+    private AICore core;
+    public float enemyLifeSpan;
+    private float enemyLifeElapsed;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        core = new AICore(verticalEnemyLives,enemyLifeSpan);
     }
 
     // Update is called once per frame
     void Update()
     {
+        core.elapseTime(Time.deltaTime);
         Vector3 Targetpos = new Vector3(this.transform.position.x, player.transform.position.y, 5);
         transform.position = Vector2.MoveTowards(transform.position, Targetpos, speed * Time.deltaTime);
         //Checking Health
