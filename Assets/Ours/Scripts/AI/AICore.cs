@@ -6,9 +6,11 @@ public class AICore
 {
     //Booleans
     private bool exist;
+    private bool partOfSpawner;
     //Integer Variables
-    private static int numOfAI = 0;
+    public static int numOfAI = 0;
     private int hitPoints;
+    public static int spawnerAI = 0;
     //Float Variables
     private float lifeElapsed = 0f;
     private float lifespan;
@@ -21,10 +23,15 @@ public class AICore
         numOfAI++;
         exist = true;
     }
-
+    public AICore()
+    {
+        
+    }
     public void elapseTime(float timeChange)
     {
         lifeElapsed += timeChange;
+        //if (lifeElapsed > lifespan)
+            //this.died();
     }
     
     public void takeDamage()
@@ -33,19 +40,31 @@ public class AICore
         if (hitPoints < 0)
         {
             hitPoints = 0;
+            this.died();
         }
     }
     public int getNumberOfAI()
     {
         return numOfAI;
     }
-    public void died()
+    private void died()
     {
-        if (!this.isAlive() && exist)
+        if (exist)
         {
             numOfAI--;
             exist = false;
+            if (partOfSpawner)
+            {
+                spawnerAI--;
+            }
         }
+        
+    }
+    public void spawn()
+    {
+        spawnerAI++;
+        partOfSpawner = true;
+        Debug.Log("spawn Function was called");
     }
     public bool isAlive() { if (hitPoints == 0 || lifeElapsed >= lifespan) return false; return true; }
 }
