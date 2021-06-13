@@ -23,6 +23,12 @@ public class AICore
         numOfAI++;
         exist = true;
     }
+    public void spawn()
+    {
+        spawnerAI++;
+        partOfSpawner = true;
+        Debug.Log("AICore.spawn()");
+    }
     public AICore()
     {
         
@@ -37,7 +43,7 @@ public class AICore
     public void takeDamage()
     {
         hitPoints--;
-        if (hitPoints < 0)
+        if (hitPoints <= 0)
         {
             hitPoints = 0;
             this.died();
@@ -47,10 +53,16 @@ public class AICore
     {
         return numOfAI;
     }
+    public int getNumOfSpawnerAI()
+    {
+        return spawnerAI;
+    }
     private void died()
     {
+        Debug.Log("AICore.died(): exist = " + exist);
         if (exist)
         {
+            Debug.Log("AICore.died(): PartOfSpawner = " + partOfSpawner);
             numOfAI--;
             exist = false;
             if (partOfSpawner)
@@ -60,11 +72,6 @@ public class AICore
         }
         
     }
-    public void spawn()
-    {
-        spawnerAI++;
-        partOfSpawner = true;
-        Debug.Log("spawn Function was called");
-    }
+    
     public bool isAlive() { if (hitPoints == 0 || lifeElapsed >= lifespan) return false; return true; }
 }

@@ -34,8 +34,8 @@ public class SmileSpawner : MonoBehaviour
     {
         if (AICore.spawnerAI < spawnCap)
         {
-            Debug.Log("Summoned Enemy");
-            Debug.Log("This is the number of AI: " + AICore.spawnerAI);
+            Debug.Log("SmileSpawner.SpawnEnemy(): Summoned Enemy"); ;
+            Debug.Log("SmileSpawner.SpawnEnemy(): Spawned Num = : " + AICore.spawnerAI);
             GameObject spawnEnemy = Instantiate(smileEnemy, spawnLocation);
             spawnEnemy.GetComponent<EnemyAI>().spawn();
         }

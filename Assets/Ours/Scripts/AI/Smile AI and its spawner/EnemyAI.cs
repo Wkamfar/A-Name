@@ -14,22 +14,22 @@ public class EnemyAI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { // Obama was here
+        spawnSync += 1;
         core = new AICore(hp, ls);
-        spawnSync = 1;
         randSpotIndex = Random.Range(0, moveSpots.Length);
-        Debug.Log("Smile enemy, AI spawn, number of AI = " + core.getNumberOfAI());
+        Debug.Log("EnemyAI.Start(): number of spawned AI = " + core.getNumOfSpawnerAI());
 
-        Debug.Log("Spawn sync in start function is equal to " + spawnSync);
+        Debug.Log("EnemyAI.Start(): Spawn sync = " + spawnSync);
             
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnSync == 2)
+        if (spawnSync > 1)
         {
             core.spawn();
-            spawnSync = 3;
+            spawnSync = 0;
 
         }
         core.elapseTime(Time.deltaTime);
@@ -43,8 +43,15 @@ public class EnemyAI : MonoBehaviour
     {
         if(spawnSync == 1)
             core.spawn();
-        spawnSync = 2;
-        Debug.Log("Spawn sync in the spawn function is equal to " + spawnSync);
+        else 
+            spawnSync++;
+        Debug.Log("EnemyAI.spawn(): Spawn sync =  " + spawnSync);
 
+    }
+    public void killed()
+    {
+        core.takeDamage();
+        if(!core.isAlive())
+            Destroy(this.gameObject);
     }
 } 

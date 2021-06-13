@@ -24,7 +24,6 @@ public class FiringCannon : MonoBehaviour
             timer = 0;
             Vector3 spawnposition = this.transform.position + new Vector3(xOffset, yOffset);
             Instantiate(cannonball, spawnposition, transform.rotation * Quaternion.Euler(0f, 180f, 0f));
-            Debug.Log(xOffset);
         }
         timer += Time.deltaTime;
     }

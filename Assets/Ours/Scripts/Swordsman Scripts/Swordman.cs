@@ -464,7 +464,9 @@ public class Swordman : PlayerController
         else if (col.CompareTag("Stompable") && timeOut <= 0)
         {
             timeOut = 3;
-            Destroy(col.gameObject.transform.parent.gameObject);
+            GameObject currentSmileEnemy = col.gameObject.transform.parent.gameObject;
+            currentSmileEnemy.GetComponent<EnemyAI>().killed();
+            //Destroy(col.gameObject.transform.parent.gameObject);
             //col.gameObject.SetActive(false);
             //Destroy(col.gameObject);
             coinCount += 3;
