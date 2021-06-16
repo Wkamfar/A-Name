@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+    public SmileSpawner enemySpawner;
     public int speed;
     private int spawnSync;
     public Transform[] moveSpots;
@@ -11,9 +12,12 @@ public class EnemyAI : MonoBehaviour
     private int hp = 1;
     public float ls;
     private AICore core;
+    private bool isClone;
+    public bool isException;
     // Start is called before the first frame update
     void Start()
     { // Obama was here
+        
         spawnSync += 1;
         core = new AICore(hp, ls);
         randSpotIndex = Random.Range(0, moveSpots.Length);
@@ -32,12 +36,16 @@ public class EnemyAI : MonoBehaviour
             spawnSync = 0;
 
         }
-        core.elapseTime(Time.deltaTime);
-        transform.position = Vector2.MoveTowards(transform.position, moveSpots[randSpotIndex].position, speed * Time.deltaTime);
-        if (Vector2.Distance(transform.position,moveSpots[randSpotIndex].position)<0.1f)
+        if (canMove())
         {
-            randSpotIndex = Random.Range(0, moveSpots.Length);
+            transform.position = Vector2.MoveTowards(transform.position, moveSpots[randSpotIndex].position, speed * Time.deltaTime);
+            if (Vector2.Distance(transform.position, moveSpots[randSpotIndex].position) < 0.1f)
+            {
+                randSpotIndex = Random.Range(0, moveSpots.Length);
+            }
         }
+        core.elapseTime(Time.deltaTime);
+
     }
     public void spawn()
     {
@@ -46,12 +54,20 @@ public class EnemyAI : MonoBehaviour
         else 
             spawnSync++;
         Debug.Log("EnemyAI.spawn(): Spawn sync =  " + spawnSync);
-
+        isClone = true;
+        this.transform.position = enemySpawner.GetComponentInChildren<Transform>().position;
     }
     public void killed()
     {
         core.takeDamage();
-        if(!core.isAlive())
+        if (!core.isAlive())
             Destroy(this.gameObject);
+    }
+    public bool canMove()
+    {
+        if(!isException)
+            return isClone;
+        else
+            return true;
     }
 } 

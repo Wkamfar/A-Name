@@ -295,11 +295,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5082234207304469182, guid: 65c46a3268819aa4cadb9d375aa67cfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.3
+      value: -2.7
       objectReference: {fileID: 0}
     - target: {fileID: 5082234207304469182, guid: 65c46a3268819aa4cadb9d375aa67cfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.95
+      value: -202
       objectReference: {fileID: 0}
     - target: {fileID: 5082234207304469182, guid: 65c46a3268819aa4cadb9d375aa67cfd, type: 3}
       propertyPath: m_LocalPosition.z
@@ -337,6 +337,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Smile Entity 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6026831711712748607, guid: 65c46a3268819aa4cadb9d375aa67cfd, type: 3}
+      propertyPath: enemySpawner
+      value: 
+      objectReference: {fileID: 595265015}
     - target: {fileID: 6026831711712748607, guid: 65c46a3268819aa4cadb9d375aa67cfd, type: 3}
       propertyPath: moveSpots.Array.data[0]
       value: 
@@ -686,6 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smileEnemy: {fileID: 32789400}
   spawnLocation: {fileID: 1527025060}
+  moveSpots: []
   spawnTimer: 1
   spawnCap: 2
   enemyAmount: 0

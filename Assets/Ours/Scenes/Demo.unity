@@ -6806,6 +6806,10 @@ PrefabInstance:
       value: Smile Entity
       objectReference: {fileID: 0}
     - target: {fileID: 6026831711712748607, guid: 65c46a3268819aa4cadb9d375aa67cfd, type: 3}
+      propertyPath: isException
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6026831711712748607, guid: 65c46a3268819aa4cadb9d375aa67cfd, type: 3}
       propertyPath: moveSpots.Array.data[0]
       value: 
       objectReference: {fileID: 1268708820}

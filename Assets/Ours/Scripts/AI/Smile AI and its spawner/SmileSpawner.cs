@@ -7,7 +7,7 @@ public class SmileSpawner : MonoBehaviour
     public GameObject smileEnemy;
     public Transform spawnLocation;
     public AICore core;
-
+    public Transform[] moveSpots;
     public float spawnTimer = 3f;
     public int spawnCap = 2;
     public int enemyAmount;
@@ -17,9 +17,20 @@ public class SmileSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine("difficultyIncrease");
     }
 
+    IEnumerator difficultyIncrease()
+    {
+        
+        Debug.Log("difficultyIncrease : Before Difficulty Increase");
+        for (int i = 0; spawnCap < 10; i++)
+        {
+            yield return new WaitForSeconds(3f);
+            Debug.Log("difficultyIncrease : After Difficulty Increase");
+            spawnCap++;
+        }
+    }
     // Update is called once per frame
     void Update()
     {
@@ -34,10 +45,13 @@ public class SmileSpawner : MonoBehaviour
     {
         if (AICore.spawnerAI < spawnCap)
         {
-            Debug.Log("SmileSpawner.SpawnEnemy(): Summoned Enemy"); ;
-            Debug.Log("SmileSpawner.SpawnEnemy(): Spawned Num = : " + AICore.spawnerAI);
+            Debug.Log("SmileSpawner.SpawnEnemy(): Summoned Enemy");
+            Debug.Log("SmileSpawner.SpawnEnemy(): Spawned Num = " + AICore.spawnerAI);
+            Debug.Log("SmileSpawner.SpawnEnemy(): Spawn location = " + spawnLocation.position);
             GameObject spawnEnemy = Instantiate(smileEnemy, spawnLocation);
+            spawnEnemy.transform.parent = null;
             spawnEnemy.GetComponent<EnemyAI>().spawn();
+            spawnEnemy.GetComponent<EnemyAI>().canMove();
         }
         spawning = false;
     }
