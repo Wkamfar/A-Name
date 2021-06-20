@@ -13,7 +13,9 @@ public class SmileSpawner : MonoBehaviour
     public int enemyAmount;
     public float detectionRadius = 5f;
     private bool spawning;
-
+    public int totalSpawnAmount;
+    private int totalSpawned;
+    public Color killedColor;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +41,11 @@ public class SmileSpawner : MonoBehaviour
             Invoke("SpawnEnemy", spawnTimer);
             spawning = true;
         }
-        
+        if(totalSpawned >= totalSpawnAmount)
+        {
+            this.gameObject.GetComponent<SpriteRenderer>().color = killedColor;
+            Destroy(this);
+        }
     }
     void SpawnEnemy()
     {
@@ -50,6 +56,7 @@ public class SmileSpawner : MonoBehaviour
             Debug.Log("SmileSpawner.SpawnEnemy(): Spawn location = " + spawnLocation.position);
             GameObject spawnEnemy = Instantiate(smileEnemy, spawnLocation);
             spawnEnemy.transform.parent = null;
+            totalSpawned++;
             spawnEnemy.GetComponent<EnemyAI>().spawn();
             spawnEnemy.GetComponent<EnemyAI>().canMove();
         }
