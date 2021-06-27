@@ -7307,6 +7307,10 @@ PrefabInstance:
       value: Pause Menu Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 8118311523857995195, guid: db7480e4900991d49aa00250e3044f97, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8118311523857995195, guid: db7480e4900991d49aa00250e3044f97, type: 3}
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}

@@ -7,8 +7,8 @@ using TMPro;
 public class Swordman : PlayerController
 {
     //Static Variables
-    static public int lives = 3;
-    static public int coinCount;
+    static public int lives = 3; //here
+    static public int coinCount; //here
     //Particles
     public GameObject breakingParticle;
     public float particleDuration = 1f;
@@ -232,6 +232,7 @@ public class Swordman : PlayerController
         }
         if (Input.GetKeyDown(KeyCode.M))
         {
+            
             menuNumber++;
             if (menuNumber == 1)
             {
@@ -525,6 +526,7 @@ public class Swordman : PlayerController
         }
         else if (col.CompareTag("Flag") && timeOut <= 0)
         {
+            SavePlayerData();
             playerCameraController.ResetElapsed();
             Debug.Log(timerTextBox.text);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -592,4 +594,19 @@ public class Swordman : PlayerController
         }
     }
 
+    //Save and Load Functions
+    public void SavePlayerData()
+    {
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        PlayerData data = new PlayerData(lives, coinCount, currentLevel);
+        SaveSystem.SavePlayer(data);
+    }
+
+    public void LoadPlayerData()
+    {
+        PlayerData data = SaveSystem.playerLoad();
+        lives = data.lives;
+        coinCount = data.coinCount;
+        SceneManager.LoadScene(data.currentLevel);
+    }
 }

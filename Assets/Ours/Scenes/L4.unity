@@ -695,7 +695,7 @@ MonoBehaviour:
   spawnCap: 2
   enemyAmount: 0
   detectionRadius: 5
-  totalSpawnAmount: 5
+  totalSpawnAmount: 30
   killedColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!212 &595265016
 SpriteRenderer:

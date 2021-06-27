@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
+    public GameObject mainMenu;
+    public GameObject startMenu;
   public void StartGame ()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -16,5 +18,19 @@ public class StartMenu : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+    public void Load()
+    {
+        SaveSystem.playerLoad();
+    }
+    public void OpenStartMenu()
+    {
+        mainMenu.SetActive(false);
+        startMenu.SetActive(true);
+    }
+    public void CloseStartMenu()
+    {
+        mainMenu.SetActive(true);
+        startMenu.SetActive(false);
     }
 }
