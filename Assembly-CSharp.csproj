@@ -63,11 +63,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\WarpTextExample.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
-    <Compile Include="Assets\Ours\Scripts\SwordBullet.cs" />
+    <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Weapons\SwordBullet.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_DigitValidator.cs" />
     <Compile Include="Assets\Ours\Scripts\Breaking Scripts\BreakingGround.cs" />
     <Compile Include="Assets\Ours\Scripts\AI\AICore.cs" />
-    <Compile Include="Assets\Ours\Scripts\BlockAI.cs" />
+    <Compile Include="Assets\Ours\Scripts\AI\Rotation\BlockAI.cs" />
     <Compile Include="Assets\Ours\Scripts\Breaking Scripts\BreakingInAPattern.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
@@ -76,8 +76,9 @@
     <Compile Include="Assets\Ours\Scripts\AI\Smile AI and its spawner\SmileSpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_A.cs" />
     <Compile Include="Assets\Ours\Scripts\AI\Smile AI and its spawner\EnemyAI.cs" />
+    <Compile Include="Assets\Ours\Scripts\Data\PlayerData.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
-    <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\CameraController.cs" />
+    <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Camera\CameraController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark03.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeA.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark04.cs" />
@@ -88,7 +89,7 @@
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexJitter.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshProFloatingText.cs" />
-    <Compile Include="Assets\Ours\Scripts\Save System.cs" />
+    <Compile Include="Assets\Ours\Scripts\Data\Save System.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventHandler.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexShakeB.cs" />
@@ -96,13 +97,13 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextSelector_B.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\EnvMapAnimator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_UiFrameRateCounter.cs" />
-    <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\GroundSensor.cs" />
+    <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Swordman Movement\GroundSensor.cs" />
     <Compile Include="Assets\Ours\Scripts\AI\Clone\VerticalClone.cs" />
-    <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Swordman.cs" />
-    <Compile Include="Assets\Ours\Scripts\StartMenu.cs" />
+    <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Swordman Movement\Swordman.cs" />
+    <Compile Include="Assets\Ours\Scripts\UI\StartMenu.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\CameraController.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Demo\Assets\CFX_Demo_New.cs" />
-    <Compile Include="Assets\Ours\Scripts\CoinAI.cs" />
+    <Compile Include="Assets\Ours\Scripts\AI\Rotation\CoinAI.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\DropdownSample.cs" />
     <Compile Include="Assets\Ours\Scripts\AI\Cannons\CannonballScript.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_PhoneNumberValidator.cs" />
@@ -115,13 +116,14 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextConsoleSimulator.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
-    <Compile Include="Assets\Ours\Scripts\RotationManager.cs" />
+    <Compile Include="Assets\Ours\Scripts\AI\Rotation\RotationManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
-    <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Swordman Movement\PlayerController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Demo_GM.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\Ours\Scripts\PlayerData.cs" />
+    <Compile Include="Assets\Ours\Scripts\Map Generation\MapGenerator.cs" />
+    <Compile Include="Assets\Ours\Scripts\Map Generation\RandomHandler.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
