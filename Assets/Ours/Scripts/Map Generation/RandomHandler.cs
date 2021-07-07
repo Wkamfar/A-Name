@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class RandomHandler 
 {
-    private int seed;
+    private static int seed;
     private int minSeed;
     private int maxSeed;
+    private static bool isSeedGenerated = false;
     public RandomHandler()
     {
         this.GenerateSeed();
@@ -22,7 +23,10 @@ public class RandomHandler
     }
     public void GenerateSeed()
     {
+        if (isSeedGenerated)
+            return;
         seed = Random.Range(minSeed, maxSeed);
+        isSeedGenerated = true;
     }
     public int RandomNumber(int max)
     {
