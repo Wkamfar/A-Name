@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2307006030794602536}
   - component: {fileID: 2307006030794602543}
   m_Layer: 0
-  m_Name: Breaking
+  m_Name: Original Breaking
   m_TagString: Breakable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2307006030794602540}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.34, y: -2.64, z: -56.314365}
-  m_LocalScale: {x: 3.4582584, y: 2.6741147, z: 1}
+  m_LocalScale: {x: 2.56, y: 2.56, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -108,7 +108,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0002443, y: 1}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &2307006030794602543
 MonoBehaviour:

@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class MapGenerator : MonoBehaviour
 {
+    public int[] blockRatio;
     public GameObject block;
+    public GameObject[] collectables;
+    public GameObject[] traps;
     public GameObject[] blocks;
     public GameObject[] AI;
     public GameObject[] chunks;
@@ -38,6 +41,7 @@ public class MapGenerator : MonoBehaviour
         spawnposition = generateChunk(Chunks.chunk1, spawnposition, true);
         spawnposition = generateChunk(Chunks.chunk2, spawnposition, false);
         spawnposition = generateChunk(Chunks.chunk3, spawnposition, false);
+        spawnposition = generateChunk(Chunks.generateRandomChunk(30, 5, rnd, blockRatio), spawnposition, true);
     }
 
     // Update is called once per frame

@@ -777,7 +777,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c044f7bfb14bdf74abb34c31de188dec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockRatio: ffffffff14000000050000004b000000
   block: {fileID: 974428074}
+  collectables:
+  - {fileID: 8183820186393699859, guid: b45a34aab4f9b824c9b411b04f590d0f, type: 3}
+  - {fileID: 8539302173188984097, guid: 8a4ab52b51dc5314785c1ec3382ab0a9, type: 3}
+  - {fileID: 4556219580777023964, guid: c1c5781f21c111441a246030bfc08452, type: 3}
+  - {fileID: 4683138890391471950, guid: 6da815800321c70419145fe07c3896b4, type: 3}
+  - {fileID: 6134255981706219066, guid: 9170c5546e3335a4fb269a8dcc9dede7, type: 3}
+  traps:
+  - {fileID: 1352224411562514470, guid: d7aa5c3760f702540b9025529e5d13aa, type: 3}
+  - {fileID: 6205850260636788418, guid: d6cf85d065c48bd489a04b8d3be1b7cc, type: 3}
   blocks:
   - {fileID: 6690311368952856585, guid: e7b797028b739b24e82dd899892e745e, type: 3}
   - {fileID: 8843908220167728008, guid: 20fcb8c215bec794ca2a8e2a6276291e, type: 3}
@@ -786,8 +796,8 @@ MonoBehaviour:
   AI: []
   chunks: []
   flag: {fileID: 5416542479248182739, guid: 118fa4fac39542e4d99c162a5ded65d9, type: 3}
-  minSeed: 1
-  maxSeed: 111111
+  minSeed: 10000
+  maxSeed: 99999
   xOffset: 2.56
   yOffset: 0
   flagChance: 0
