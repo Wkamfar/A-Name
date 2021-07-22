@@ -11,7 +11,6 @@ public class RandomHandler
     public RandomHandler()
     {
         this.GenerateSeed();
-        Random.InitState(seed);
         Debug.Log("RandomHandler.RandomHandler: 1");
     }
     public RandomHandler(int min, int max)

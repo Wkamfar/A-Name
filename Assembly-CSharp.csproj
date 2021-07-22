@@ -72,6 +72,7 @@
     <Compile Include="Assets\Ours\Scripts\Map Generation\RandomHandler.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark02.cs" />
     <Compile Include="Assets\JMO Assets\Cartoon FX\Scripts\CFX_AutoRotate.cs" />
+    <Compile Include="Assets\Ours\Scripts\Map Generation\ChunksHelper.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TextMeshSpawner.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
     <Compile Include="Assets\Ours\Scripts\AI\Smile AI and its spawner\SmileSpawner.cs" />
@@ -120,11 +121,11 @@
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\ObjectSpin.cs" />
     <Compile Include="Assets\Ours\Scripts\AI\Rotation\RotationManager.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextInfoDebugTool.cs" />
+    <Compile Include="Assets\Ours\Scripts\Map Generation\Chunks.cs" />
     <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Swordman Movement\PlayerController.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\Ours\Scripts\Swordsman Scripts\Demo_GM.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
-    <Compile Include="Assets\Ours\Scripts\Map Generation\Chunks.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
@@ -808,6 +809,18 @@
     </Reference>
     <Reference Include="Unity.2D.SpriteShape.Runtime">
       <HintPath>Library\ScriptAssemblies\Unity.2D.SpriteShape.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AddOns.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.Editor">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>Library\ScriptAssemblies\Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

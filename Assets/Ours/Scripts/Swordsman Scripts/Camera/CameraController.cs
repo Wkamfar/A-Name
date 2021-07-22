@@ -6,7 +6,7 @@ public class CameraController : MonoBehaviour {
 
 
     public static CameraController Instance;
-
+    public bool keepCameraStill;
     public GameObject Target;
     private float Smoothvalue = 4f;
     public float PosY = 1;
@@ -21,37 +21,46 @@ public class CameraController : MonoBehaviour {
 
     void Start()
     {
-        if (elapsed > duration)
+        if (!keepCameraStill)
         {
-            Vector3 Targetpos = new Vector3(Target.transform.position.x, Target.transform.position.y + PosY, -100);
-            transform.position = Vector3.Lerp(transform.position, Targetpos, Time.deltaTime * 100);
+            if (elapsed > duration)
+            {
+                Vector3 Targetpos = new Vector3(Target.transform.position.x, Target.transform.position.y + PosY, -100);
+                transform.position = Vector3.Lerp(transform.position, Targetpos, Time.deltaTime * 100);
+            }
+            else
+            {
+                Smoothvalue = introSpeed;
+            }
         }
-        else
-        {
-            Smoothvalue = introSpeed;
-        }
+        
          
     }
 
 
     void Update()
     {
-       /* while (index < moveSpots.Length)
+        /* while (index < moveSpots.Length)
+         {
+             transform.position = Vector2.MoveTowards(transform.position, moveSpots[index].position, speed * Time.deltaTime);
+             if (Vector2.Distance(transform.position, moveSpots[index].position) < 0.1f)
+             {
+                 index += 1;
+             }
+         }*/
+        if (!keepCameraStill)
         {
-            transform.position = Vector2.MoveTowards(transform.position, moveSpots[index].position, speed * Time.deltaTime);
-            if (Vector2.Distance(transform.position, moveSpots[index].position) < 0.1f)
+            Vector3 Targetpos = new Vector3(Target.transform.position.x, Target.transform.position.y + PosY, -100);
+            transform.position = Vector3.Lerp(transform.position, Targetpos, Time.deltaTime * Smoothvalue);
+            if (elapsed > duration && Smoothvalue < 4)
             {
-                index += 1;
+                Smoothvalue += Time.deltaTime;
             }
-        }*/
-        Vector3 Targetpos = new Vector3(Target.transform.position.x, Target.transform.position.y + PosY, -100);
-        transform.position = Vector3.Lerp(transform.position, Targetpos, Time.deltaTime * Smoothvalue);
-        if(elapsed > duration && Smoothvalue < 4)
-        {
-            Smoothvalue += Time.deltaTime;
+            elapsed += Time.deltaTime;
         }
-        elapsed += Time.deltaTime;
 
+
+        
     }
     public void StopIntroScene()
     {
@@ -62,4 +71,5 @@ public class CameraController : MonoBehaviour {
     {
         elapsed = 0;
     }
+    
 }

@@ -35,13 +35,34 @@ public static class Chunks
         bool entranceExists = false;
         bool exitExists = false;
         int[,] chunk = new int[sizeY, sizeX];
+        ChunksHelper helper = new ChunksHelper(sizeY, sizeX, chunk, ratio);
         for (int y = sizeY - 1; y > -1; y--)
         {
             for (int x = 0; x < sizeX; x++)
             {
+                if (chunk[y,x] < 0)
+                {
+                    if(chunk[y,x] == -10)
+                    {
+                        chunk[y, x] = 0;
+                    }
+                    continue;
+                }
                 int r = rnd.RandomNumber(100); 
                 for(int i = 0; i < ratio.Length; i++)
-                { 
+                {
+                    if (y == 0)
+                    {
+                        chunk[y, x] = 1;
+                        if (1 < sizeY)
+                        {
+                            if (chunk[1, x] == 1 || chunk[1, x] == 2)
+                            {
+                                chunk[y, x] = 0;
+                            }
+                        }
+                        break;
+                    }
                     r -= ratio[i]; 
                     if (r <= 0)
                     {
@@ -54,7 +75,7 @@ public static class Chunks
                             }
                         }
                         break;
-                    }
+                    }                
                 } 
             }
         }
@@ -66,3 +87,4 @@ public static class Chunks
 //dirt cannot be above grass or honey
 // there must always be a floor that can be walked on, the level must be possible
 //some blocks, like honey, are less likely to generate than grass
+//the top row can't be dirt

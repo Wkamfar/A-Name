@@ -27,6 +27,7 @@ TagManager:
   - Gustavo
   - Slayable
   - AimZone
+  - shop
   layers:
   - Default
   - TransparentFX

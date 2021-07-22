@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
@@ -8,7 +9,7 @@ public class Swordman : PlayerController
 {
     //Static Variables
     static public int lives = 3; //here
-    static public int coinCount; //here
+    static public int coinCount = 0; //here
     //Particles
     public GameObject breakingParticle;
     public float particleDuration = 1f;
@@ -67,6 +68,26 @@ public class Swordman : PlayerController
     private CameraController playerCameraController;
     //Others
     public float breakingTime = 2f;
+    //Shop Variables
+    public bool shopLevel;
+    public GameObject shopInterior;
+    public GameObject shopEnteringButtonPrompt;
+    private bool canEnterShop;
+    private bool inShop;
+    public GameObject[] shopItems;
+    //Pedastal Prices
+    public TextMeshProUGUI pedastal1Price;
+    public TextMeshProUGUI pedastal2Price;
+    public TextMeshProUGUI pedastal3Price;
+    //Heart Item
+    public int heartPriceIncrement;
+    private int currentHeartPrice;
+    public int maxHeartPrice;
+    private int heartsBought;
+    public TextMeshProUGUI heartPriceTextBox;
+    private bool canBuyHealth;
+    public Animator heartAnimator;
+    public float heartAnimationBuffer;
     public void Start()
     {
         //Initializing Variables
@@ -204,7 +225,15 @@ public class Swordman : PlayerController
     private void Update()
     {
         updateTimers();
-        checkInput();
+        if (!inShop)
+        {
+            checkInput();
+        }
+        if (shopLevel)
+        {
+            Shop();
+        }
+        
 
         if (m_rigidbody.velocity.magnitude > 30)
         {
@@ -531,6 +560,17 @@ public class Swordman : PlayerController
             Debug.Log(timerTextBox.text);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
+        else if (col.CompareTag("shop"))
+        {
+            canEnterShop = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.CompareTag("shop"))
+        {
+            canEnterShop = false;
+        }
     }
 
     void OnCollisionEnter2D (Collision2D col)
@@ -608,5 +648,82 @@ public class Swordman : PlayerController
         lives = data.lives;
         coinCount = data.coinCount;
         SceneManager.LoadScene(data.currentLevel);
+    }
+    public void Shop()
+    {
+        shopEnteringButtonPrompt.SetActive(canEnterShop);
+        shopInterior.SetActive(inShop);
+        if (canEnterShop && Input.GetKeyDown(KeyCode.F) && !inShop)
+        {
+            inShop = true;
+            timerTextBox.gameObject.SetActive(false);
+            shopInterior.SetActive(true);
+            heartAnimator.SetTrigger("IsBought");
+            Invoke("ResetShopTrigger", heartAnimationBuffer);
+        }
+        else if(inShop && Input.GetKeyDown(KeyCode.Escape))
+        {
+            inShop = false;
+            timerTextBox.gameObject.SetActive(true);
+            heartAnimator.Rebind();
+        }
+        //Make a loot pool for the pedastals
+        //Make the first pedastal for hearts, and everytime you buy one it gets more expensive until the money cap
+        //find another way to disable the timer
+        //Move this later after you can buy hearts
+        //Make this whole thing a seperate script, so that we don't have to disable it or enable it on a level to level basis
+        //Make the correct variables static
+        //Make it so that lives automatically update when gaining health
+        heartPriceTextBox.text = currentHeartPrice.ToString();
+        coinTextBox.text = "Points: " + coinCount.ToString();
+
+    }
+    public void CloseShop()
+    {
+        inShop = false;
+        timerTextBox.gameObject.SetActive(true);
+    }
+    public void BuyHeart()
+    {
+        
+        if (lives == maxLives || coinCount < currentHeartPrice)
+        {
+            canBuyHealth = false;
+        }
+        else
+        {
+            canBuyHealth = true;
+        }
+        if (canBuyHealth)
+        {
+            lives++;
+            coinCount -= currentHeartPrice;
+            heartsBought++;
+            if (lives > maxLives)
+            {
+                lives = maxLives;
+            }
+            else if (lives == 2)
+            {
+                heart2.enabled = true;
+            }
+            else if (lives == 3)
+            {
+                heart3.enabled = true;
+            }
+            currentHeartPrice = heartPriceIncrement * heartsBought;
+            if (currentHeartPrice > maxHeartPrice)
+            {
+                currentHeartPrice = maxHeartPrice;
+            }
+            heartAnimator.SetTrigger("IsBought");
+            Invoke("ResetShopTrigger", heartAnimationBuffer);
+        }
+            
+
+    }
+    private void ResetShopTrigger()
+    {
+        heartAnimator.Rebind();
     }
 }

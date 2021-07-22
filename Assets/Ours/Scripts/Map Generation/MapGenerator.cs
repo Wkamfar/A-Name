@@ -41,7 +41,12 @@ public class MapGenerator : MonoBehaviour
         spawnposition = generateChunk(Chunks.chunk1, spawnposition, true);
         spawnposition = generateChunk(Chunks.chunk2, spawnposition, false);
         spawnposition = generateChunk(Chunks.chunk3, spawnposition, false);
-        spawnposition = generateChunk(Chunks.generateRandomChunk(30, 5, rnd, blockRatio), spawnposition, true);
+
+        for (int i = 0; i < 3; i++)
+        {
+            spawnposition = generateChunk(Chunks.generateRandomChunk(5, 5, rnd, blockRatio), spawnposition, false);
+        }
+
     }
 
     // Update is called once per frame
